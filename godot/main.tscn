@@ -1,14 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdqlnpcsilwi0"]
+[gd_scene load_steps=5 format=3 uid="uid://bdqlnpcsilwi0"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_imrga"]
 [ext_resource type="Texture2D" uid="uid://ckvytghig8wqr" path="res://assets/prototype/texture_08.svg" id="1_nbg57"]
+[ext_resource type="PackedScene" uid="uid://b030gdjdkm4li" path="res://scenes/player_character.tscn" id="2_05hlu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfnn4"]
 albedo_texture = ExtResource("1_nbg57")
 uv1_triplanar = true
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_imrga")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-size = Vector3(1, 2, 6)
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+collision_layer = 8
+collision_mask = 0
+size = Vector3(18, 1, 18)
 material = SubResource("StandardMaterial3D_bfnn4")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_05hlu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
