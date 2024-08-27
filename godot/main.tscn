@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdqlnpcsilwi0"]
+
+[ext_resource type="Texture2D" uid="uid://ckvytghig8wqr" path="res://assets/prototype/texture_08.svg" id="1_nbg57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfnn4"]
+albedo_texture = ExtResource("1_nbg57")
+uv1_triplanar = true
+
+[node name="Main" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(1, 2, 6)
+material = SubResource("StandardMaterial3D_bfnn4")
